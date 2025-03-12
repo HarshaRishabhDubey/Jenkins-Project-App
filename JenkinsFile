@@ -1,0 +1,29 @@
+pipeline{
+    agent any
+
+    tools{
+        maven "jenkins-maven"
+    }
+
+    stages{
+
+        stage("Clean Install"){
+            steps{
+            sh 'mvn clean install'
+            }
+        }
+
+        stage("Package")
+        {   
+            steps{
+            sh 'mvn package'
+        }
+    }
+
+        stage("Test"){
+            steps{
+            sh 'mv test'
+        }
+    }
+    }
+}
